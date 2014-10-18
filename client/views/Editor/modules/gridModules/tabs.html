@@ -1,0 +1,191 @@
+<template name="tabsField">
+	<li>
+    <div class="lyrow ui-draggable tabLyrow"> 
+		<span class="glyphicon glyphicon-cog openModal col1 tabglyph"></span><span class="glyphicon remove tabglyph glyphicon-remove"></span><span class="glyphicon glyphicon-move drag dragthis tabglyph"></span>
+    
+	                <div class="preview drag">
+	 TABS           </div>
+	  
+      <div class="view">
+		  
+        <div class="tabbable myTabs gridId" id="1413185131072"> <!-- Only required for left/right tabs -->
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#panel-1413185131072-1" class="tab-1413185131072-1 1413185131072-1" data-toggle="tab" contenteditable="false">Tab 1</a></li>
+            <li><a href="#panel-1413185131072-2" class="tab-1413185131072-2 1413185131072-2" data-toggle="tab" contenteditable="false">Tab 2</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active panel-1413185131072-1" id="panel-1413185131072-1">
+                <div class="row clearfix">
+              <div class="col-md-12 column col-1413185131072-1"></div>
+		  </div>
+            </div>
+            <div class="tab-pane panel-1413185131072-2" id="panel-1413185131072-2">
+                <div class="row clearfix">
+               <div class="col-md-12 column col-1413185131072-2"></div>
+		   </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	  
+	  <!-- Modal -->
+	  <div class="modal fade col1 tabsModal" id="col1-1413185131072" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	    <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	          <h4 class="modal-title">Tabs Settings</h4>
+	        </div>
+	        <div class="modal-body">
+					
+				<div class="tabLayout">
+					<h3>Tab Layout</h3>
+				<div class="btn-group" data-toggle="buttons">
+				  <label class="hTab btn btn-primary active">
+				    <input type="radio" value="hTab" checked> Horizontal
+				  </label>
+				  <label class="vTab btn btn-primary">
+				    <input type="radio" value="vTab"> Vertical
+				  </label>
+				
+				</div>
+						</div>
+						<hr>
+        <div class="tabbable myTabs"> <!-- Only required for left/right tabs -->
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#settings-1413185131072-1" class="tabsettings-1413185131072-1" data-toggle="tab" contenteditable="false"><input type="text" value="Tab 1" id="tname-1413185131072-1" class="tabname tabname-1"></a>
+			<span class="glyphicon glyphicon-move moveTab"></span></li>
+            <li><a href="#settings-1413185131072-2" data-toggle="tab" class="tabsettings-1413185131072-2" contenteditable="false"><input type="text" value="Tab 2" id="tname-1413185131072-2" class="tabname tabname-2"></a>
+			<span class="glyphicon glyphicon-move moveTab"></span></li>
+			<li class="notSortable"><span class="glyphicon glyphicon-plus addGlyph addTab"></span><span class="addTab addtab-stacked btn btn-default">Add Tab</span></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active settings-1413185131072-1" id="settings-1413185131072-1">
+                <div class="row clearfix">
+              <div class="col-md-12">
+  				<h3> Padding </h3>
+				<form class="form-inline" role="form">
+						    <div class="form-group col-md-3">
+								<p>Top</p>
+						    <div class="input-group">
+						      <input class="form-control onlynum padding-top" data-target-padding="col-1413185131072-1" type="text" value="10" data-original-value="10" maxlength="3">
+ 							 <div class="input-group-addon">px</div>
+							  
+						    </div>
+						  </div>
+						    <div class="form-group col-md-3">
+								<p>Right</p>
+								
+						    <div class="input-group">
+						       <input class="form-control onlynum padding-right" data-target-padding="col-1413185131072-1" type="text" value="10" data-original-value="10" maxlength="3">
+   							 <div class="input-group-addon">px</div>
+							   
+						     </div>
+						   </div>
+						    <div class="form-group col-md-3">
+								<p>Bottom</p>
+								
+						    <div class="input-group">
+						        <input class="form-control onlynum padding-bottom" data-target-padding="col-1413185131072-1" type="text" value="10" data-original-value="10" maxlength="3">
+    							 <div class="input-group-addon">px</div>
+								
+						      </div>
+						    </div>
+						    <div class="form-group col-md-3">
+								<p>Left</p>
+								
+						       <div class="input-group">
+						         <input class="form-control onlynum padding-left" data-target-padding="col-1413185131072-1" type="text" value="10" data-original-value="10" maxlength="3">
+	 							 <div class="input-group-addon">px</div>
+								 
+						       </div>
+						     </div>
+				</form>
+				<div class="removeTab">Remove Tab</div>
+				
+              </div>
+		  </div>
+            </div>
+            <div class="tab-pane settings-1413185131072-2" id="settings-1413185131072-2">
+                <div class="row clearfix">
+               <div class="col-md-12">
+  				<h3> Padding </h3>
+				<form class="form-inline" role="form">
+						    <div class="form-group col-md-3">
+								<p>Top</p>
+						    <div class="input-group">
+						      <input class="form-control onlynum padding-top" data-target-padding="col-1413185131072-2" type="text" value="10" data-original-value="10" maxlength="3">
+ 							 <div class="input-group-addon">px</div>
+							  
+						    </div>
+						  </div>
+						    <div class="form-group col-md-3">
+								<p>Right</p>
+								
+						    <div class="input-group">
+						       <input class="form-control onlynum padding-right" data-target-padding="col-1413185131072-2" type="text" value="10" data-original-value="10" maxlength="3">
+   							 <div class="input-group-addon">px</div>
+							   
+						     </div>
+						   </div>
+						    <div class="form-group col-md-3">
+								<p>Bottom</p>
+								
+						    <div class="input-group">
+						        <input class="form-control onlynum padding-bottom" data-target-padding="col-1413185131072-2" type="text" value="10" data-original-value="10" maxlength="3">
+    							 <div class="input-group-addon">px</div>
+								
+						      </div>
+						    </div>
+						    <div class="form-group col-md-3">
+								<p>Left</p>
+								
+						       <div class="input-group">
+						         <input class="form-control onlynum padding-left" data-target-padding="col-1413185131072-2" type="text" value="10" data-original-value="10" maxlength="3">
+	 							 <div class="input-group-addon">px</div>
+								 
+						       </div>
+						     </div>
+				</form>
+				<div class="removeTab">Remove Tab</div>
+				
+               </div>
+		   </div>
+            </div>
+          </div>
+        </div>
+		
+		
+
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  
+								<div id="deleteTabsmodal" class="deleteModal modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+								  <div class="modal-dialog modal-md">
+								    <div class="modal-content">
+										<form class="deleteModal">
+											<p>Are you sure you want to delete this tab? <br>It's contents will also be deleted.</p>
+				<button type="submit" id="backTabs" class="btn btn-default">Cancel</button> <button type="submit" id="deleteTabs" class="btn btn-danger">Get Rid of it!</button>
+	</form>
+								    </div>
+								  </div>
+								</div>
+	  
+	  
+	  
+      </div>
+	  
+	  
+	</li>
+
+</template>
+
+
+
+
+    

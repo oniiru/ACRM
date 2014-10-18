@@ -1,0 +1,41 @@
+<template name="heading">
+	<li>
+    <div class="box box-element ui-draggable openBox"> 
+		<span class="glyphicon glyphicon-cog openModal element"></span><span class="glyphicon remove glyphicon-remove"></span><span class="glyphicon glyphicon-move drag dragthis"></span>
+    
+	                <div class="preview drag">
+	  HEADING           </div>
+	  
+      <div class="view">
+			<h2 class="elementId modalView" id="1413185131073">This is your Heading...</h2>
+		      </div>
+			  <!-- Modal -->
+			  <div class="modal fade elementModal headerModal" id="modal-1413185131073" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			    
+			        <div class="modal-body">
+						<div class="row">
+						<label for="headingSize" class="col-md-4">Heading Size</label>
+						<select name="headingSize" class="col-md-8 headingSize">
+							<option value="h1"> Extra-large</option>
+							<option value="h2" selected="selected"> Large </option>
+							<option value="h3"> Medium</option>
+							<option value="h4"> Small </option>
+						</select>
+					</div>
+						<input name="labelField" type="text" value="This is your Heading..." placeholder="This is your Heading..." class="col-md-12 headerInput">
+				
+
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+		
+	</li>
+
+</template>

@@ -1,0 +1,36 @@
+<template name="orgPage">
+      <div class="sidebar sidebar-nav">
+     	</div>
+  <div class="container-fluid rightContainer projectsContainer">
+  	<div class="row">
+    <div class="projects">
+  	  <ul id="forms">
+		  
+  	  					<li id="newProject" class="item add admin-button turquoise">
+  	  						<img src="/addsign.png">
+  	  						<div>Create a New Project</div>
+  	  								</li>
+	  
+      {{#each projects}}
+        {{> projectItem}}
+  {{/each}}
+  </ul>
+    </div>
+  </div>
+  </div>
+  							<div id="npModal" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+  							  <div class="modal-dialog modal-md">
+  							    <div class="modal-content">
+  									<form>
+  							      <input type="text" name="newTitle" val="Untitled" placeholder="Project Title..." class="newTitle"> <button type="submit" id="createProject" class="btn btn-primary"> Let's get to it!</button>
+  </form>
+  							    </div>
+  							  </div>
+  							</div>
+  </template>
+  
+  
+  
+  
+  
+  

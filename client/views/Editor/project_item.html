@@ -1,0 +1,21 @@
+<template name="projectItem">
+	<a href="{{pathFor 'newFields' }}"><li class="item add admin-button orgwhite">
+		<p class="deleteButton"> Delete</p>
+		<div>{{title}} <p class="draft">{{#if notpublished}} Draft {{/if}}</p></div>
+							</li></a>
+							
+														<div id="deleteModal-{{_id}}" class="deleteModal modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+														  <div class="modal-dialog modal-md">
+														    <div class="modal-content">
+																<form class="deleteModal">
+																	<p>Are you sure you want to delete this project?<br> Type <span>DELETE</span> in the field below to confirm. </p>
+														      <input type="text" name="delete-{{_id}}" placeholder="Type DELETE here" class="newTitle"> <button type="submit" id="deleteProject-{{_id}}" class="btn btn-danger"> Confirm Delete</button>
+							</form>
+														    </div>
+														  </div>
+														</div>
+							
+
+</template>
+
+

@@ -1,0 +1,15 @@
+<template name="layout">
+	{{> notifications}}
+	{{#if currentUser}}
+ {{> header}}
+ {{else}}
+<div style="padding:10px"> {{> loginButtons }}  </div>
+ {{/if}}
+ {{#if currentUser}}
+ <div id="main" class="row">
+   {{> yield}}
+  </div>
+  {{else}}
+  {{> yield}}
+  {{/if}}
+</template>

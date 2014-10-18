@@ -1,0 +1,32 @@
+<template name="editOrgs">
+    <div class="sidebar sidebar-nav">
+	 
+   	</div>
+<div class="container-fluid rightContainer orgsContainer">
+	<div class="row">
+  <div class="orgs">
+	  <ul id="forms">
+		  
+	  					<li id="newOrg" class="item add admin-button turquoise">
+	  						<img src="/addsign.png">
+	  						<div>Create a New Organization</div>
+							
+	  											</li>
+	  
+    {{#each orgs}}
+      {{> orgItem}}
+{{/each}}
+</ul>
+  </div>
+</div>
+</div>
+							<div id="npModal" class="modal fade bs-example-modal-md" tabindex="-1" role="dialog" aria-hidden="true">
+							  <div class="modal-dialog modal-md">
+							    <div class="modal-content">
+									<form>
+							      <input type="text" name="newTitle" val="Untitled" placeholder="Organization Title..." class="newTitle"> <button type="submit" id="createOrg" class="btn btn-primary"> Let's get to it!</button>
+</form>
+							    </div>
+							  </div>
+							</div>
+</template>

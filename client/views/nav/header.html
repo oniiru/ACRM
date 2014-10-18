@@ -1,0 +1,28 @@
+<template name="header">
+  <header>
+   <div class="navbar navbar-fixed-top" role="navigation">
+	   <div class="row first">
+       <div class="navbar-header">
+           <a class="navbar-brand" href="/">AnythingCRM</a>
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+           </button>
+       </div>
+       <div class="navbar-collapse collapse">
+           <ul class="nav navbar-nav navbar-right">
+               {{> loginButtons }} <!-- here -->
+           </ul>
+       </div>
+   </div>
+   <div class="row second">
+	   <ul class="menu top-level">
+	   				<li class="active"><a href="/"><div class="icon tab-forms"></div>My typeforms</a></li>
+	   				<li class=""><a href="/team"><div class="icon tab-team"></div>Team</a></li>
+	   				</ul>
+   </div>
+   </div>
+  </header>
+</template>
