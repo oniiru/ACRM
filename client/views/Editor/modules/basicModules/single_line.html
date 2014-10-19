@@ -1,27 +1,21 @@
 <template name="singleLine">
 	<li>
-    <div class="box singledrag box-element ui-draggable"> 
-		<a href="#close" class="remove">
-			<span class="glyphicon glyphicon-remove"></span>
-		</a> 
-		<span class="drag dragthis">
-			<span class="glyphicon glyphicon-move"></span>
-		</span> 
-    
+    <div class="box openBox box-element ui-draggable"> 
+		<span class="glyphicon glyphicon-cog openModal element"></span><span class="glyphicon remove glyphicon-remove"></span><span class="glyphicon glyphicon-move drag dragthis"></span>
+  
 	                <div class="preview drag">
 	  INPUT           </div>
 	  
-      <div class="view testclick">
-			<input type="text" placeholder="Type something…" class="col-md-12"  disabled>
+      <div class="view">
+			<input type="text" placeholder="Type something…" class="col-md-12 elementId"  id="1413185131075" disabled>
 		      </div>
-		  </div>
 		  <!-- Modal -->
-		  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal fade elementModal singleModal" tabindex="-1" role="dialog" id="modal-1413185131075" aria-hidden="true">
 		    <div class="modal-dialog">
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		          <h4 class="modal-title">Input Settings</h4>
 		        </div>
 		        <div class="modal-body">
 					<label for="validation">Validation - Select from the pulldown below to only allow that type of data to be entered. </label>
@@ -45,6 +39,7 @@
 		    </div>
 		  </div>
 		  
+    </div>
 	</li>
 
 </template>
