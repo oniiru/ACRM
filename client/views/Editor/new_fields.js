@@ -47,6 +47,13 @@ function removeElm() {
 		$(this).parent().remove();
 		
 	})
+	$(".demo").delegate(".removeOption", "click", function(e) {
+	
+		if($(this).parent().siblings().length >= 2) {
+		$(this).parent().remove();
+} else {		Notifications.error('Ooops!', 'Dropdowns need at least 2 options. :)');}
+	
+	})
 }
 
 
@@ -91,6 +98,7 @@ function modalElm() {
 		
 	})
 	$(".demo").delegate(".modalView", "click", function(e) {
+		e.preventDefault();
 		theId = $(this).attr('id');
 		theModal = '#modal-'+theId;
 	    $(theModal).modal();
@@ -100,10 +108,21 @@ function modalElm() {
 		theId = $(this).attr('id');
 		theModal = '#modal-'+theId;
 		$(theModal).modal({backdrop: 'static'});
-		
 	
-	});
+	});	
+	$(".demo").delegate(".removeOption", "click", function(e) {
 	
+		if($(this).parent().siblings().length >= 2) {
+		$(this).parent().remove();
+} else {		Notifications.error('Ooops!', 'Dropdowns need at least 2 options. :)');}
+	
+	})
+	$(".demo").delegate(".selectOption input", "input", function(e) {
+		theId = '#'+$(this).attr('id').replace('option-', '');
+		theVal = $(this).val();
+		$(theId).text(theVal);
+	
+	});	
 	
 }
 function newTabsElm() {
@@ -223,27 +242,26 @@ function modalOptions() {
 		var target = $(this).closest('.lyrow').find(targetData).first();
 		var value = $(this).val()+'px';
 		$(target).css('padding-left', value)
-	})
+	});
 	$('input.padding-top').change(function() {
 		var targetData = '.column.'+$(this).data('target-padding');
 		var target = $(this).closest('.lyrow').find(targetData).first();
 		var value = $(this).val()+'px';
 		$(target).css('padding-top', value)
-	})
+	});
 	$('input.padding-bottom').change(function() {
 		var targetData = '.column.'+$(this).data('target-padding');
 		var target = $(this).closest('.lyrow').find(targetData).first();
 		var value = $(this).val()+'px';
 		$(target).css('padding-bottom', value)
-	})
+	});
 	$('input.padding-right').change(function() {
 		var targetData = '.column.'+$(this).data('target-padding');
 				
 		var target = $(this).closest('.lyrow').find(targetData).first();
 		var value = $(this).val()+'px';
 		$(target).css('padding-right', value)
-	})
-	
+	});
 	$('input.tabname').change( function () { 
 		theId = $(this).attr('id').replace('tname-', '');
 		theVal = $(this).val();
@@ -264,6 +282,9 @@ function textOptions() {
 		$(withHash).parent().html(theValue);
 		
 	})
+	
+	
+	
 	$('.headingSize').change( function() {
 		theId = $(this).closest('.modal').attr('id').replace('modal-','');
 		withHash = '#'+theId;
@@ -273,6 +294,25 @@ function textOptions() {
 		theValue = '<'+theSize+' class="elementId headingView" id="'+theId+'">'+theVal+'</'+theSize+'>';
 		$(withHash).parent().html(theValue);
 		
+	})	
+	
+	$('.labelField').change( function() {
+		theId = $(this).closest('.modal').attr('id').replace('modal-','');
+		withHash = '#'+theId;
+		theLabel = $(this).val();
+		$(withHash).children('label').text(theLabel);
+		
+	})	
+	
+	$('.requiredYes').click( function() {
+		theId = '#'+$(this).closest('.modal').attr('id').replace('modal-','');
+		$(theId).children('input').addClass('required');
+		$(theId).children('label').addClass('requiredLabel');
+	})	
+	$('.requiredNo').click( function() {
+		theId = '#'+$(this).closest('.modal').attr('id').replace('modal-','');
+		$(theId).children('input').removeClass('required');
+		$(theId).children('label').removeClass('requiredLabel');
 	})	
 	
 	$('.descripSubmit').click( function(e){
@@ -286,6 +326,106 @@ function textOptions() {
     	airMode: true
 		
     });	
+})
+
+
+
+	$('.addOption').click( function(e){
+		e.preventDefault();
+		var t = randomNumber();
+		$(this).parent().siblings('.dropdownRow').append('<div class="selectOption col-md-12"><input name="labelField" type="text" id="option-'+t+'" value="An Option" class="col-md-10"><span class="glyphicon glyphicon-move"></span><span class="glyphicon glyphicon-remove removeOption"></span></div>');
+		
+		$(this).closest('.modal').siblings('.view').find('select').append('<option id="'+t+'" class="anOption">An Option</option>');
+		
+		
+		$('.dropdownRow').sortable({
+			handle: '.glyphicon-move',
+			start: function(e, ui ){
+			     ui.placeholder.height(50);
+			},
+				stop: function(e, ui) {
+					littleIndex = $(ui.item).index();
+					theID = $(ui.item).children('input').attr('id').replace('option-', '');
+					bigLi = '#'+theID;
+					bigIndex = $(bigLi).parent().children('.anOption').get(littleIndex);
+					if($(bigIndex).is(':last-child')) {
+						$(bigLi).insertAfter(bigIndex);
+					} else {
+					$(bigLi).insertBefore(bigIndex);
+								}
+							}
+		});
+				
+	})
+	
+
+	
+	$('.singleValid').change( function(e){
+		theId = '#'+$(this).closest('.modal').attr('id').replace('modal-','');
+		if($(this).val() == 'none') {
+			newStuff = '<input type="text" placeholder="Type something…" class="col-md-10 needsValidation" disabled>';
+			$(theId).children('.needsValidation').replaceWith(newStuff);
+		}
+		else if($(this).val() == 'validEmail') {
+			$(this).siblings('.currencyValid').hide();
+			
+			newStuff = ' <div class="input-group col-md-10 needsValidation"><span class="input-group-addon"><i class="fa fa-envelope-o"></i></span><input type="text" placeholder="Type something…" class="col-md-12" disabled></div>';
+			$(theId).children('.needsValidation').replaceWith(newStuff);
+
+		}
+		
+		else if($(this).val() == 'validUrl') {
+			$(this).siblings('.currencyValid').hide();
+			
+			newStuff =' <div class="input-group col-md-10 needsValidation"><span class="input-group-addon"><i class="fa fa-link"></i></span><input type="text" placeholder="Type something…" class="col-md-12" disabled></div>';
+			$(theId).children('.needsValidation').replaceWith(newStuff);
+
+		}
+		
+		else if($(this).val() == 'validPhone') {
+			$(this).siblings('.currencyValid').hide();
+			
+			newStuff =' <div class="input-group col-md-10 needsValidation"><span class="input-group-addon"><i class="fa fa-phone"></i></span><input type="text" placeholder="Type something…" class="col-md-12" disabled></div>';
+			$(theId).children('.needsValidation').replaceWith(newStuff);
+
+		}
+		else if($(this).val() == 'validNumber') {
+			$(this).siblings('.currencyValid').hide();
+			
+			newStuff =' <input type="text" placeholder="Type something…" class="col-md-10 needsValidation onlyNum" disabled>';
+			$(theId).children('.needsValidation').replaceWith(newStuff);
+
+		}
+		else if($(this).val() == 'validCurrency') {
+			$(this).siblings('.currencyValid').show();
+			newStuff =' <div class="input-group col-md-10 needsValidation"><span class="input-group-addon"><i class="currencySymbol fa fa-dollar"></i></span><input type="text" placeholder="Type something…" class="col-md-12" disabled></div>';
+			$(theId).children('.needsValidation').replaceWith(newStuff);
+
+		}
+	
+	})
+	
+	$('.currencyValid').change (function() {
+		theId = '#'+$(this).closest('.modal').attr('id').replace('modal-','');
+		
+		if(($(this).val() == 'Dollar') || ($(this).val() == 'Other') || ($(this).val() == 'Peso')) {
+			$(theId).find('.currencySymbol').attr('class', 'currencySymbol fa fa-dollar');
+		}
+		else if($(this).val() == 'Pound') {
+			$(theId).find('.currencySymbol').attr('class', 'currencySymbol fa fa-gbp');
+		}
+		else if($(this).val() == 'Euro') {
+			$(theId).find('.currencySymbol').attr('class', 'currencySymbol fa fa-eur');
+		}
+		else if(($(this).val() == 'Yen') || ($(this).val() == 'Yuan')) {
+			$(theId).find('.currencySymbol').attr('class', 'currencySymbol fa fa-yen');
+		}
+		else if($(this).val() == 'Won') {
+			$(theId).find('.currencySymbol').attr('class', 'currencySymbol fa fa-krw');
+		}
+		else if($(this).val() == 'Rupee') {
+			$(theId).find('.currencySymbol').attr('class', 'currencySymbol fa fa-inr');
+		}
 	})
 	$('.descripCancel').click( function(e){
 		e.preventDefault();
@@ -301,6 +441,21 @@ function textOptions() {
 		
     });	
 	})
+	
+	$('.btn-toggle .btn').click(function() {
+	    $(this).addClass('active');  
+	    $(this).addClass('btn-info');  
+	    $(this).removeClass('btn-default');  
+		
+		$(this).siblings('.btn').removeClass('active')
+		$(this).siblings('.btn').removeClass('btn-info')
+	    $(this).siblings('.btn').addClass('btn-default');  
+		
+		
+	
+       
+	});
+
     $('.summerNote').summernote({
     	airMode: true
 		
@@ -351,8 +506,24 @@ function handleElementIds() {
 	var f = $(".sidebar-nav .elementId");
 	var t = randomNumber();
 	var q = 'modal-' + t;
+		var z1 = 'option-' + t+"-1";
+		var z2 = 'option-' + t+"-2";
+		var z3 = 'option-' + t+"-3";
+		var y1 = t+'-1';
+		var y2 = t+'-2';
+		var y3 = t+'-3';
+		
+		
 	f.attr("id", t);
 	f.parent().parent().find('.elementModal').attr("id", q);
+	
+	f.parent().parent().find('.option1').attr('id', z1);
+	f.parent().parent().find('.option2').attr('id', z2);
+	f.parent().parent().find('.option3').attr('id', z3);
+	f.children().children('.option1').attr('id', y1);
+	f.children().children('.option2').attr('id', y2);
+	f.children().children('.option3').attr('id', y3);
+	
 
 }
 
@@ -379,6 +550,7 @@ function initContainer(){
 			if(stopsave>0) stopsave--;
 			startdrag = 0;
 			handleBiz(event, ui);
+			
 		}
 	});
 }
@@ -395,7 +567,7 @@ $(".sidebar-nav .lyrow").draggable({
 		t.helper.width(175)
 	},
 	stop: function(e, t) {
-	
+		
 		$('.modal .myTabs .nav').sortable(
 			{
 				handle: ".moveTab",
@@ -452,10 +624,26 @@ $(".sidebar-nav .box").draggable({
 		startdrag = 0;
 		handleElementIds();
 		textOptions();
-		
-	
+		$('.dropdownRow').sortable({
+			handle: '.glyphicon-move',
+			start: function(e, ui ){
+			     ui.placeholder.height(50);
+			},
+			stop: function(e, ui) {
+				littleIndex = $(ui.item).index();
+				theID = $(ui.item).children('input').attr('id').replace('option-', '');
+				bigLi = '#'+theID;
+				bigIndex = $(bigLi).parent().children('.anOption').get(littleIndex);
+				if($(bigIndex).is(':last-child')) {
+					$(bigLi).insertAfter(bigIndex);
+				} else {
+				$(bigLi).insertBefore(bigIndex);
+							}
+}
+		});
 	}
 });
+
 removeElm();
 newTabsElm();
 modalElm();

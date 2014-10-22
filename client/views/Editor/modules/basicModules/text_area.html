@@ -1,39 +1,44 @@
 <template name="textArea">
-
-    <div class="box openBox box-element ui-draggable"> 
+<li>
+    <div class="box openBox inputBox box-element ui-draggable"> 
 		<span class="glyphicon glyphicon-cog openModal element"></span><span class="glyphicon remove glyphicon-remove"></span><span class="glyphicon glyphicon-move drag dragthis"></span>
       
       <div class="preview drag">
 	  TEXT AREA           </div>
 	  
       <div class="view">
-			<textarea placeholder="Type something…" id="1413185131076" class="col-md-12 elementId"></textarea>
+		  <div class="row elementId modalView"  id="1413185131076" >
+			<label class="col-md-2">Label</label>
+			<textarea placeholder="Type something…" class="col-md-10" disabled></textarea>
+		</div>
 		      </div>
-		  	  <!-- Modal -->
-		  <div class="modal fade elementModal textFieldModal" tabindex="-1" role="dialog" id="modal-1413185131076" aria-hidden="true">
-		    <div class="modal-dialog">
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		          <h4 class="modal-title">Text Area Settings</h4>
-		        </div>
-		        <div class="modal-body">
-					<label for="labelField">Label</label>
-					<input name="labelField" type="text" style="col-md-12">
-					<label for="required">Required?</label>
+					  <!-- Modal -->
+					  <div class="modal fade elementModal inputModal" tabindex="-1" role="dialog" id="modal-1413185131076" aria-hidden="true">
+					    <div class="modal-dialog">
+					      <div class="modal-content">
+		      <span data-dismiss="modal" class="closeModal">X</span>
+					        <div class="modal-body">
+								<div class="row">
+								<label for="labelField" class="col-md-4">Label</label>
+								<input name="labelField" type="text" class="col-md-8 labelField">
+							</div>
+							
+							<div class="row">
+				
+								<label for="required" class="col-md-4">Required?</label>
+			<div class="btn-group btn-toggle col-md-8"> 
+		     <button class="btn btn-default requiredYes">YES</button>
+		     <button class="btn btn-info active requiredNo">NO</button>
+			  </div>
+ 
+			</div>
 
-              <input name="required" type="checkbox" style="">
-					<label for="allowStyling">Allow Styling?</label>
-<input name="allowStyling" type="checkbox" style="">
-					
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		          <button type="button" class="btn btn-primary">Save changes</button>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
+
+					        </div>
+		     
+					      </div>
+					    </div>
+					  </div>
 		  
     </div>
 	</li>

@@ -304,7 +304,7 @@ a:hover {
 		background:white;
 		margin-bottom:10px;
 	}
-	.headerModal label {
+	.headerModal label, .inputModal label {
 		vertical-align: bottom;
 		color: white;
 		font-size: 20px;
@@ -339,7 +339,7 @@ padding: 10px 0px;
 	
 	
 	}
-
+	
 	.descriptionView {
 		padding:10px 0;
 	}
@@ -348,22 +348,81 @@ padding: 10px 0px;
 		padding:10px;
 		padding-top:15px;
 	}
+	.demo .box .modal input[type="text"] {
+		background:white;
+	}
+	.saveSingle {
+		float:right;
+	}
+	.demo .box .modal select {
+	background:white;	
+	}
+	.inputModal .btn-group {
+		padding-left:0px;
+	}
+	
+	.inputModal label {
+		padding-left:0px;
+	}
+	.inputModal .modal-body .row {
+		padding:5px 0;
+	}
+	.inputModal .modal-footer {
+		border-top:none;
+		padding:10px;
+		padding-top:15px;
+	}
+	
+	.inputModal .modal-footer .btn {
+	margin-top:5px;	
+	}
 		.headerModal .modal-footer .btn {
 		margin-top:5px;	
 		}
-	.demo .box .view .socialFields .input-group{
+	.demo .box .view .socialFields .input-group, .demo .box .view .needsValidation .input-group{
 		border-radius:0px;
 		border-top:1px solid #aaa;
 	}
-	.demo .box .view .socialFields  input[type="text"] {
+	.demo .box .view .socialFields  input[type="text"]{
 		border-radius:0px
 		}
+		.needsValidation.input-group input[type="text"] {
+			border-radius: 0 4px 4px 0;
+			padding-left:0px;
+		}
+		.modalView, .descriptionView {
+			cursor:pointer;
+		}
 		
-	.socialFields .input-group-addon{
+		.selectOption {
+			margin-bottom: 10px;
+			padding: 0px;
+			float: right;
+				}
+		
+ input[disabled] {
+	 cursor:pointer !important;
+ }
+
+ .selectButtons {
+	 text-align:left;
+	 padding:0px;
+ }
+ .currencyValid {
+	 display:none;
+	 margin-top:10px;
+ }
+ .lyrow label {
+	 cursor:pointer !important;
+ }
+	.socialFields .input-group-addon, .needsValidation .input-group-addon{
 		border-radius:0px;
 		background: rgb(216, 214, 201);
 		border:none;		
 		width:30px;
+	}
+	.needsValidation .input-group-addon {
+		border-radius:4px 0 0px 4px;
 
 	}
 	.demo .box .view .socialFields .lastSocial {
@@ -564,13 +623,13 @@ margin:0px;
 		background-repeat:no-repeat;
 		background-size:70%;
 	}
-	#npModal .modal-content, .deleteModal .modal-content, .headerModal .modal-content, .descriptionModal .modal-content {
+	#npModal .modal-content, .deleteModal .modal-content, .headerModal .modal-content, .descriptionModal .modal-content, .inputModal .modal-content {
 		background:none;
 		border:none;
 		box-shadow:none;
 		text-align:center;
 	}
-	#npModal .modal-dialog, .deleteModal .modal-dialog, .headerModal .modal-dialog, .descriptionModal .modal-dialog {
+	#npModal .modal-dialog, .deleteModal .modal-dialog, .headerModal .modal-dialog, .descriptionModal .modal-dialog, .inputModal .modal-dialog {
 		margin:20% auto;
 	}
 	#npModal .modal-content input[type="text"], .deleteModal .modal-content input[type="text"]{
@@ -613,6 +672,50 @@ p.draft {
 	top:0px;
 	right:5px;
 }
+.closeModal {
+	float: right;
+	font-size: 1.6em;
+	position: absolute;
+	right: 15px;
+	top: -25px;
+	color: rgb(194, 194, 194);
+	cursor:pointer;
+}
+
+.requiredLabel:after { color:red;content:" *"; }
+
+.demo .column .box.inputBox .glyphicon {
+	top:5px;
+}
+.demo .column .box.inputBox .removeOption {
+ position: relative;
+ right: -5px;
+ top: 12px;
+ font-size: 1.3em;
+ color: rgb(228, 116, 116);
+ cursor: pointer;
+}
+.dropdownRow {
+	padding:0px;
+}
+
+.demo .column .box.inputBox .selectOption .glyphicon-move{position: relative;
+right: 5px;
+top: 12px;
+font-size: 1.3em;
+color: rgb(194, 194, 194);
+cursor: pointer;}
+
+.demo .column .box.inputBox .openModal {
+	right:60px;
+}
+.demo .column .box.inputBox .remove {
+right:20px;	
+}
+.demo .column .box.inputBox .dragthis {
+right:40px;	
+}
+
 .demo .lyrow .drag {
 top: -6px;
 right: 20px;

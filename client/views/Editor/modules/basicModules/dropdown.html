@@ -1,9 +1,8 @@
 <template name="dropdown">
 	<li>
-    <div class="box box-element ui-draggable"> 
-		<a href="#close" class="remove">
-			<span class="glyphicon glyphicon-remove"></span>
-		</a> 
+    <div class="box openBox inputBox box-element ui-draggable"> 
+		<span class="glyphicon glyphicon-cog openModal element"></span><span class="glyphicon remove glyphicon-remove"></span><span class="glyphicon glyphicon-move drag dragthis"></span>
+		
 		<span class="drag dragthis">
 			<span class="glyphicon glyphicon-move"></span>
 		</span> 
@@ -12,14 +11,60 @@
 	  DROPDOWN          </div>
 	  
       <div class="view">
-			<select class="col-md-12">
-				<option>A Select Field</option>
-				<option>Option 1</option>
-				<option>Option 2</option>
-				<option>Option 3</option>
-				<option>Option 4</option>
+		  <div class="row elementId" id="1413185131077">
+		  <label class="col-md-2 modalView">Label</label>
+			<select class="col-md-10">
+				<option value="" disabled selected>Pick an Option...</option>						
+				<option id="1413185131077-1" class="option1 anOption">An Option</option>
+				<option id="1413185131077-2" class="option2 anOption">An Option</option>
+				<option id="1413185131077-3" class="option3 anOption">An Option</option>
 			</select>
 		      </div>
+		  </div>
+		  		  <!-- Modal -->
+		  		  <div class="modal fade elementModal inputModal" tabindex="-1" role="dialog" id="modal-1413185131077" aria-hidden="true">
+		  		    <div class="modal-dialog">
+		  		      <div class="modal-content">
+		  		      <span data-dismiss="modal" class="closeModal">X</span>
+		      
+		  		        <div class="modal-body">
+		  					<div class="row">
+		  					<label for="labelField" class="col-md-3">Label</label>
+		  					<input name="labelField" type="text" class="col-md-9 labelField">
+		  				</div>
+			  		  				<div class="row">
+				
+			  		  					<label for="required" class="col-md-3">Required?</label>
+			  		  <div class="btn-group btn-toggle col-md-9"> 
+			  		      <button class="btn btn-default requiredYes">YES</button>
+			  		      <button class="btn btn-info active requiredNo">NO</button>
+			  		    </div>
+ 
+			  		  </div>
+						<hr>
+						
+						<div class="row">
+		  					<label for="labelField" class="col-md-3">Options</label>
+		  					<div class="dropdownRow col-md-9">
+							
+		  					<div class="selectOption col-md-12"><input value="An Option" id="option-1413185131077-1" name="labelField" type="text" class="col-md-10 option1"><span class="glyphicon glyphicon-move"></span><span class="glyphicon glyphicon-remove removeOption"></span></div>
+		  					<div class="selectOption col-md-12"><input value="An Option" id="option-1413185131077-2" name="labelField" type="text" class="col-md-10 option2"><span class="glyphicon glyphicon-move"></span><span class="glyphicon glyphicon-remove removeOption"></span></div>
+		  				<div class="selectOption col-md-12">	<input value="An Option" id="option-1413185131077-3" name="labelField" type="text" class="col-md-10 option3"><span class="glyphicon glyphicon-move"></span><span class="glyphicon glyphicon-remove removeOption"></span></div>
+		  				</div>
+						
+<div class="col-md-9 col-md-offset-3 selectButtons">
+    <button type="button" class="btn btn-primary addOption">Add Option</button>
+	
+</div>							
+							
+							</div>
+		  	
+
+		  		        </div>
+		     
+		  		      </div>
+		  		    </div>
+		  		  </div>
 		  </div>
 	</li>
 

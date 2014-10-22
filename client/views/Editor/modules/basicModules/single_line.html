@@ -1,40 +1,67 @@
 <template name="singleLine">
 	<li>
-    <div class="box openBox box-element ui-draggable"> 
+    <div class="box openBox inputBox box-element ui-draggable"> 
 		<span class="glyphicon glyphicon-cog openModal element"></span><span class="glyphicon remove glyphicon-remove"></span><span class="glyphicon glyphicon-move drag dragthis"></span>
   
 	                <div class="preview drag">
 	  INPUT           </div>
 	  
-      <div class="view">
-			<input type="text" placeholder="Type something…" class="col-md-12 elementId"  id="1413185131075" disabled>
+      <div class="view" >
+		  <div class="row elementId modalView" id="1413185131075">
+		  <label class="col-md-2">Label</label>
+		  
+			<input type="text" placeholder="Type something…" class="col-md-10 needsValidation" disabled>
+		</div>
 		      </div>
 		  <!-- Modal -->
-		  <div class="modal fade elementModal singleModal" tabindex="-1" role="dialog" id="modal-1413185131075" aria-hidden="true">
+		  <div class="modal fade elementModal inputModal" tabindex="-1" role="dialog" id="modal-1413185131075" aria-hidden="true">
 		    <div class="modal-dialog">
 		      <div class="modal-content">
-		        <div class="modal-header">
-		          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		          <h4 class="modal-title">Input Settings</h4>
-		        </div>
+		      <span data-dismiss="modal" class="closeModal">X</span>
+		      
 		        <div class="modal-body">
-					<label for="validation">Validation - Select from the pulldown below to only allow that type of data to be entered. </label>
-					<select name="validation" class="col-md-12">
-						<option> Anything </option>
-						<option> Email </option>
-						<option> Website </option>
-						<option> Phone Number </option>
+					<div class="row">
+					<label for="labelField" class="col-md-3">Label</label>
+					<input name="labelField" type="text" class="col-md-9 labelField">
+				</div>
+				<div class="row">
+					<label class="col-md-3" for="validation">Validation </label>
+					<select name="validation" class="col-md-9 singleValid">
+						<option value="none" selected="selected"> No Validation </option>
+						<option value="validEmail"> Email </option>
+						<option value="validUrl"> Website </option>
+						<option value="validPhone"> Phone Number </option>
+						<option value="validCurrency"> Currency </option>
+						<option value="validNumber"> Number </option>
+						
 					</select>
-					<label for="labelField">Label</label>
-					<input name="labelField" type="text" style="col-md-12">
-					<input name="required" type="checkbox" style="">
-					<label for="required">Required?</label>
+					<select name="Currency" class="col-md-12 currencyValid">
+						<option value="" disabled selected>Select a Currency</option>						
+						<option value="Dollar"> Dollar (USA) </option>
+						<option value="Pound"> Pound (United Kingdom)</option>
+						<option value="Euro"> Euro (Europe) </option>
+						<option value="Yen"> Yen (Japan)</option>
+						<option value="Won"> Won (Korea) </option>
+						<option value="Rupee"> Rupee (India) </option>
+						<option value="Yuan"> Yuan (China) </option>
+						<option value="Peso"> Peso (Mexico) </option>
+						<option value="Other"> Other </option>
+						
+					</select>
+					
+				</div>
+				<div class="row">
+				
+					<label for="required" class="col-md-3">Required?</label>
+<div class="btn-group btn-toggle col-md-9"> 
+    <button class="btn btn-default requiredYes">YES</button>
+    <button class="btn btn-info active requiredNo">NO</button>
+  </div>
+ 
+</div>
 
 		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		          <button type="button" class="btn btn-primary">Save changes</button>
-		        </div>
+		     
 		      </div>
 		    </div>
 		  </div>
